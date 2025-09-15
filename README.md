@@ -30,7 +30,7 @@ Load from `dist/image-formats-support.js` or JsDelivr:
 		// Set `<body>` element classes: has-avif/no-avif, has-webp/no-webp has-jxl/no-jxl
 		window.detectImageFormatsDefault(document);
 
-		// Detect AVIF, WebP, JPEG XL support and run passed callback
+		// Detect AVIF, WebP, JPEG XL support and run given callback
 		window.detectImageFormats(function (result) {
 			console.log(result.avif); // boolean
 			console.log(result.webp); // boolean
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', (): void => {
 	// Set `<body>` element classes: has-avif/no-avif, has-webp/no-webp has-jxl/no-jxl
 	detectImageFormatsDefault(document);
 
-	// Detect AVIF, WebP, JPEG XL support and run passed callback
+	// Detect AVIF, WebP, JPEG XL support and run given callback
 	detectImageFormats((result: ImageFormatResult): void => {
 		console.log(result.avif); // boolean
 		console.log(result.webp); // boolean

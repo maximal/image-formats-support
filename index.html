@@ -123,7 +123,7 @@
 		// Set `<body>` element classes: has-avif/no-avif, has-webp/no-webp has-jxl/no-jxl
 		window.detectImageFormatsDefault(document);
 
-		// Detect AVIF, WebP, JPEG XL support and run passed callback
+		// Detect AVIF, WebP, JPEG XL support and run given callback
 		window.detectImageFormats(function (result) {
 			var resultAvif = document.getElementById('result-avif');
 			var resultWebp = document.getElementById('result-webp');
