@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Image Formats Support Detector</title>
+	<style>
+		.text-center {
+			text-align: center;
+		}
+
+		table {
+			width: 100%;
+			border-spacing: 1px;
+		}
+
+		th, td {
+			padding: 2rem 1rem;
+			width: 33.333%;
+		}
+
+		.supported {
+			background-color: lightgreen;
+		}
+
+		.not-supported {
+			background-color: lightcoral;
+		}
+
+		footer {
+			opacity: 0.2;
+			transition: opacity 1s linear;
+			padding: 0.5rem;
+			margin-top: 3rem;
+			border-top: 1px solid rgba(128, 128, 128, 0.25);
+			text-align: center;
+		}
+
+		footer:hover {
+			opacity: 1;
+		}
+
+		footer a {
+			color: rgba(0, 0, 255, 0.7);
+		}
+
+		footer a:hover {
+			color: blue;
+		}
+
+		.sijeko-link {
+			transition: color 1s linear;
+		}
+
+		.sijeko-link em {
+			transition: color 1s linear;
+		}
+
+		footer .sijeko-link:hover {
+			color: #ff7000;
+		}
+
+		.sijeko-link em {
+			color: #ff7000;
+			font-style: normal;
+		}
+
+		footer .sijeko-link:hover em {
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+
+<table>
+	<thead>
+	<tr>
+		<th class="text-center">
+			<a href="https://en.wikipedia.org/wiki/AVIF" target="_blank">AVIF</a>
+		</th>
+		<th class="text-center">
+			<a href="https://en.wikipedia.org/wiki/WebP" target="_blank">WebP</a>
+		</th>
+		<th class="text-center">
+			<a href="https://en.wikipedia.org/wiki/JPEG_XL" target="_blank">JPEG XL</a>
+		</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td class="text-center" id="result-avif"></td>
+		<td class="text-center" id="result-webp"></td>
+		<td class="text-center" id="result-jxl"></td>
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<td class="text-center" colspan="3" id="result-time"></td>
+	</tr>
+	</tfoot>
+</table>
+
+<footer>
+	<a href="https://maximals.ru/" target="_blank">MaximAL</a>
+	of&nbsp;<a href="https://sijeko.ru/" class="sijeko-link" target="_blank">Sij<em>e</em>ko</a>
+	2025
+	&middot;
+	<a href="https://github.com/maximal/image-formats-support" target="_blank">GitHub</a>
+</footer>
+
+
+<!-- Local script -->
+<script type="application/javascript" src="dist/image-formats-support.js"></script>
+
+<!-- Script from JsDelivr -->
+<!--
+<script type="application/javascript"
+        src="https://cdn.jsdelivr.net/gh/maximal/image-formats-support@1.0.0/dist/image-formats-support.min.js"></script>
+-->
+<script type="application/javascript">
+	document.addEventListener('DOMContentLoaded', function () {
+
+		// Set `<body>` element classes: has-avif/no-avif, has-webp/no-webp has-jxl/no-jxl
+		window.detectImageFormatsDefault(document);
+
+		// Detect AVIF, WebP, JPEG XL support and run passed callback
+		window.detectImageFormats(function (result) {
+			var resultAvif = document.getElementById('result-avif');
+			var resultWebp = document.getElementById('result-webp');
+			var resultJxl = document.getElementById('result-jxl');
+			if (result.avif) {
+				resultAvif.innerText = 'Supported';
+				resultAvif.className = 'text-center supported';
+			} else {
+				resultAvif.innerText = 'Not Supported';
+				resultAvif.className = 'text-center not-supported';
+			}
+			if (result.webp) {
+				resultWebp.innerText = 'Supported';
+				resultWebp.className = 'text-center supported';
+			} else {
+				resultWebp.innerText = 'Not Supported';
+				resultWebp.className = 'text-center not-supported';
+			}
+			if (result.jxl) {
+				resultJxl.innerText = 'Supported';
+				resultJxl.className = 'text-center supported';
+			} else {
+				resultJxl.innerText = 'Not Supported';
+				resultJxl.className = 'text-center not-supported';
+			}
+			document.getElementById('result-time').innerText = 'Detected in ' + result.time + ' ms';
+		}, { avif: true, webp: true, jxl: true, delay: 0 });
+
+	});
+</script>
+</body>
+</html>

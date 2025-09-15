@@ -1,0 +1,131 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	//"$schema": "https://biomejs.dev/schemas/2.0.5/schema.json"
+	"files": {
+		"includes": [
+			"**",
+			"!biome.jsonc",
+			"!package.json",
+			"!tsconfig.json",
+			"!node_modules/",
+			//"!dist/",
+			"!**/*.min.js"
+		],
+		"ignoreUnknown": true
+	},
+	"root": true,
+	"linter": {
+		"rules": {
+			"recommended": true,
+			"style": {
+				//"useNamingConvention": {
+				//	"level": "warn",
+				//	"options": {
+				//		// Стиль свойств объектов и типов: разрешаем разные форматы,
+				//		// потому что данные могут приходить от третьих сторон
+				//		"conventions": [
+				//			{
+				//				"selector": {
+				//					"kind": "objectLiteralProperty"
+				//				},
+				//				"formats": ["camelCase", "snake_case", "PascalCase"]
+				//			},
+				//			{
+				//				"selector": {
+				//					"kind": "typeProperty"
+				//				},
+				//				"formats": ["camelCase", "snake_case", "PascalCase"]
+				//			}
+				//		]
+				//	}
+				//}
+				"noParameterAssign": "warn",
+				"useAsConstAssertion": "warn",
+				"useEnumInitializers": "warn",
+				"useSelfClosingElements": "warn",
+				"useSingleVarDeclarator": "warn",
+				"noUnusedTemplateLiteral": "warn",
+				"useNumberNamespace": "warn",
+				"useDefaultParameterLast": "warn",
+				"noUselessElse": "warn"
+			},
+			"complexity": {
+				"recommended": true,
+				"noExcessiveCognitiveComplexity": "info",
+				"noForEach": "warn",
+				"noUselessStringConcat": "warn",
+				"useSimplifiedLogicExpression": "warn",
+				"useWhile": "warn"
+			},
+			"correctness": {
+				"recommended": true
+			},
+			"nursery": {
+				"recommended": true,
+				"useAnchorHref": "error"
+			},
+			"performance": {
+				"recommended": true
+			},
+			"security": {
+				"recommended": true
+			},
+			"suspicious": {
+				"recommended": true,
+				"noAssignInExpressions": "info"
+			},
+			"a11y": {
+				"recommended": true
+			}
+		},
+		"enabled": true
+	},
+	"formatter": {
+		"formatWithErrors": true,
+		"indentStyle": "tab",
+		"indentWidth": 4,
+		"lineEnding": "lf",
+		"lineWidth": 100,
+		"attributePosition": "auto",
+		"enabled": true
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"jsxQuoteStyle": "single",
+			"quoteProperties": "asNeeded",
+			"trailingCommas": "all",
+			"semicolons": "always",
+			"arrowParentheses": "always",
+			"attributePosition": "auto",
+			"enabled": true
+		}
+		//"globals": ["$", "_", "externalVariable"]
+	},
+	"css": {
+		"formatter": {
+			"quoteStyle": "single",
+			"enabled": true
+		}
+	},
+	"html": {
+		"formatter": {
+			"selfCloseVoidElements": "never",
+			"enabled": true
+		}
+	},
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		},
+		"enabled": true
+	},
+	"vcs": {
+		"clientKind": "git",
+		"useIgnoreFile": true,
+		"defaultBranch": "main",
+		"enabled": true
+	}
+}
