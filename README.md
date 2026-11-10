@@ -22,7 +22,7 @@ Load from `dist/image-formats-support.js` or JsDelivr:
 
 <!-- Script from JsDelivr -->
 <script type="application/javascript"
-        src="https://cdn.jsdelivr.net/gh/maximal/image-formats-support@1.0.0/dist/image-formats-support.min.js"></script>
+        src="https://cdn.jsdelivr.net/gh/maximal/image-formats-support@1.0.1/dist/image-formats-support.min.js"></script>
 <script type="application/javascript">
 	// On DOM ready
 	document.addEventListener('DOMContentLoaded', function () {
